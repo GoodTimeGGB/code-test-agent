@@ -1,22 +1,15 @@
-﻿<#
-.SYNOPSIS
-  安装 code-test-agent（代码测试智能体）到 Trae。支持本地安装与远程一键安装。
-
-.DESCRIPTION
-  将 code-test-agent.agent.md 复制到 Trae 的智能体目录。
-  - 本地运行：从脚本同目录读取 .agent.md
-  - 远程运行（iex）：本地无文件时自动从 GitHub 下载
-  - 默认安装到当前项目： <项目根>/.trae/agents/
-  - 加 -Global 安装到当前用户全局： ~/.trae/agents/（所有项目可用）
-
-.EXAMPLE
-  # 远程一键安装到当前项目
-  iex (irm https://raw.githubusercontent.com/GoodTimeGGB/code-test-agent/main/install.ps1)
-
-.EXAMPLE
-  # 远程一键安装到全局
-  $g=1; iex (irm https://raw.githubusercontent.com/GoodTimeGGB/code-test-agent/main/install.ps1) -Global
-#>
+﻿# install.ps1 - 安装 code-test-agent（代码测试智能体）到 Trae
+#
+# 本地运行：从脚本同目录读取 code-test-agent.agent.md
+# 远程运行（iex）：本地无文件时自动从 GitHub 下载
+#
+# 用法：
+#   安装到当前项目（默认）：
+#     powershell -ExecutionPolicy Bypass -File install.ps1
+#     iex (irm https://raw.githubusercontent.com/GoodTimeGGB/code-test-agent/main/install.ps1)
+#   安装到全局（所有项目可用）：
+#     powershell -ExecutionPolicy Bypass -File install.ps1 -Global
+#     $g=1; iex (irm https://raw.githubusercontent.com/GoodTimeGGB/code-test-agent/main/install.ps1) -Global
 
 param(
   [switch]$Global

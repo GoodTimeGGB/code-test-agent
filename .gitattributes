@@ -1,8 +1,6 @@
-# Shell 脚本必须使用 LF 换行，保证 macOS / Linux 可直接执行
+# 脚本统一使用 LF 换行，保证 macOS / Linux 可直接执行，Windows PowerShell 也兼容
 install.sh text eol=lf
-
-# PowerShell 脚本保持 CRLF（Windows 兼容）
-install.ps1 text eol=crlf
+install.ps1 text eol=lf
 
 # 智能体定义与文档
 *.md text
