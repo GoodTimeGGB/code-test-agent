@@ -25,7 +25,7 @@
 | **Claude Code** | `<项目>/.claude/agents/` | `~/.claude/agents/` | `.md` |
 | 其他（Cursor 等） | 参见各工具官方文档的 `agents/` 目录 | 同左 | `.md` / `.agent.md` |
 
-> **⚠️ 技能依赖说明（重要）**：智能体编排调用的四个测试技能（test-case-generator / test-case-runner / test-api-runner / test-unit-runner）为 **Trae 环境下的技能**。在 Trae 中开箱即用；在 CodeBuddy、Claude Code 等其他工具中使用时，智能体的**编排逻辑与测试用例规范可复用**，但需确保对应工具中已存在同等能力的测试技能，否则只能完成"用例设计"，无法自动执行与出报告。
+> **✅ 技能随包分发**：智能体编排调用的四个测试技能（test-case-generator / test-case-runner / test-api-runner / test-unit-runner）已作为 SKILL.md 一并打包在本仓库的 `skills/` 目录，安装脚本会将它们一起装入。技能基于通用工具编写，**不依赖任何私有 MCP / 企业技能服务器**，跨工具可复用。
 
 ---
 
@@ -240,8 +240,13 @@ your-project/
 ```
 code-test-agent/
 ├── code-test-agent.agent.md   # 智能体定义（核心，唯一必需文件）
-├── install.ps1                # Windows 安装脚本（支持远程一键安装）
-├── install.sh                 # macOS / Linux 安装脚本（支持远程一键安装）
+├── install.ps1                # Windows 安装脚本（智能体 + 技能一起装）
+├── install.sh                 # macOS / Linux 安装脚本（智能体 + 技能一起装）
+├── skills/                    # 四个测试技能（SKILL.md）
+│   ├── test-case-generator/   # UI/E2E 用例生成
+│   ├── test-case-runner/      # UI/E2E 执行 + 报告
+│   ├── test-api-runner/       # 接口测试
+│   └── test-unit-runner/      # 单元测试 + 覆盖率
 └── README.md                  # 本说明
 ```
 
