@@ -25,7 +25,7 @@
 ```
 
 > 想装成**全局**（所有项目可用），把命令换成：
-> `$g=1; iex (irm https://raw.githubusercontent.com/GoodTimeGGB/code-test-agent/main/install.ps1) -Global`
+> `$env:CTA_GLOBAL='1'; iex (irm https://raw.githubusercontent.com/GoodTimeGGB/code-test-agent/main/install.ps1)`
 
 ---
 
@@ -38,7 +38,7 @@
 iex (irm https://raw.githubusercontent.com/GoodTimeGGB/code-test-agent/main/install.ps1)
 
 # 安装到全局（所有项目可用）
-$g=1; iex (irm https://raw.githubusercontent.com/GoodTimeGGB/code-test-agent/main/install.ps1) -Global
+$env:CTA_GLOBAL='1'; iex (irm https://raw.githubusercontent.com/GoodTimeGGB/code-test-agent/main/install.ps1)
 ```
 
 ### macOS / Linux（bash）
